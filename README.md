@@ -1,0 +1,2 @@
+# Student-Registration-App
+This is an android app made specifically for university level but school and college faculty can also use this app as a CMS service on a small level for their tasks.This app has 2 main portals one is for students and other one is for admins. Admin can upload the content of a student like his bio ,marks ,courses ,etc while the student can only view the data entered by the admin just by scanning the QR code provided to student by their faculty or admin.
