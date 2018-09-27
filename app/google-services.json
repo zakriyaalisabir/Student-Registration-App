@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "483784400311",
+    "firebase_url": "https://studentregistrationapp.firebaseio.com",
+    "project_id": "studentregistrationapp",
+    "storage_bucket": "studentregistrationapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483784400311:android:cb0a490d488dccf9",
+        "android_client_info": {
+          "package_name": "com.zakriyaalisabir.studentregistrationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483784400311-pi36c5torbfn40r7f48iqvur06vgkl2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zakriyaalisabir.studentregistrationapp",
+            "certificate_hash": "fc97e5b5ec1e693bea4eeb2a1fe548b0324b9ba6"
+          }
+        },
+        {
+          "client_id": "483784400311-sjkfg0qajjeol80mf69mucne7mlgibdu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZkZMGLSF0QBW-2iOS-zzSWEhV9SWd_nc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483784400311-sjkfg0qajjeol80mf69mucne7mlgibdu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
