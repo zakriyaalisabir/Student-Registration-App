@@ -7,21 +7,56 @@
     android:padding="30dp"
     tools:context=".StudentMenu">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:textStyle="bold"
             android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:text="MY COURSES"
+            android:textSize="20sp"
+            android:text="MY CURRENT COURSES"
+            android:id="@+id/btnMyCurrentCourses"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="MY COURSES HISTORY"
             android:id="@+id/btnMyCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/round_button"/>
 
-    </RelativeLayout>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="MY CURRENT RESULTS"
+            android:id="@+id/btnMyCurrentResults"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:text="MY OVERALL RESULT"
+            android:id="@+id/btnMyOverallResult"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

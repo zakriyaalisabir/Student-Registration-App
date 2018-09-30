@@ -26,10 +26,11 @@
             android:layout_width="match_parent"
             android:hint="Username"
             android:textColorHint="#77ae69"
-            android:backgroundTint="#77ae69"
+            app:backgroundTint="#77ae69"
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/etUsername"
+                app:backgroundTint="#77ae69"
                 android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:hint="Username"
@@ -45,10 +46,11 @@
             android:id="@+id/tiLayer2"
             android:hint="Password"
             android:textColorHint="#77AE69"
-            android:backgroundTint="#77ae69"
+            app:backgroundTint="#77ae69"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                app:backgroundTint="#77ae69"
                 android:id="@+id/etPassword"
                 android:textSize="20sp"
                 android:layout_width="match_parent"

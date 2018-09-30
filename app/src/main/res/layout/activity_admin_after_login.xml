@@ -8,15 +8,164 @@
     android:background="#ffffff"
     tools:context=".AdminAfterLogin">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/btnAddStudent"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/add_student"/>
+
+                <TextView
+                    android:layout_below="@+id/btnAddStudent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="Add New\nStudent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/btnUpdateStudent"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/update_student_info"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnUpdateStudent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Update Info\nOf A Student"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/btnAddStudentCurrentCourses"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/student_current_courses"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnAddStudentCurrentCourses"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Add Current\nCourses Of A\nStudent"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/btnAddNewCourses"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/add_new_courses_for_registration"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnAddNewCourses"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Add New\nCourses To\nOur Database"/>
+
+            </RelativeLayout>
+
+        </LinearLayout><LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/btnAddResultForAStudent"
+                android:background="@drawable/round_button"
+                android:src="@mipmap/add_student_result"/>
+
+            <TextView
+                android:gravity="center"
+                android:layout_below="@+id/btnAddResultForAStudent"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="Add Student\nResult"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
