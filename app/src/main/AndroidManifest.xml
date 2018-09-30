@@ -22,7 +22,8 @@
         <activity android:name=".QRScanner" />
         <activity android:name=".StudentProfile" />
         <activity android:name=".AdminLogin" />
-        <activity android:name=".AdminAfterLogin"></activity>
+        <activity android:name=".AdminAfterLogin" />
+        <activity android:name=".StudentMenu"></activity>
     </application>
 
 </manifest>

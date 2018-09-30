@@ -8,62 +8,70 @@
     android:background="#ffffff"
     tools:context=".AdminLogin">
 
-    <ImageView
-        android:id="@+id/imgAdmin"
-        android:layout_marginTop="100dp"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/admin"/>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_above="@id/tiLayer2"
-        android:id="@+id/tiLayer1"
-        android:layout_width="match_parent"
-        android:hint="Username"
-        android:textColorHint="#77ae69"
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/etUsername"
-            android:textSize="20sp"
+
+        <ImageView
+            android:id="@+id/imgAdmin"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/admin"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@id/imgAdmin"
+            android:id="@+id/tiLayer1"
             android:layout_width="match_parent"
             android:hint="Username"
-            android:inputType="text"
-            android:textColor="#000000"
-            android:textColorHint="#77AE69"
-            android:maxLength="8"
-            android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
+            android:textColorHint="#77ae69"
+            android:backgroundTint="#77ae69"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etUsername"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:hint="Username"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#77AE69"
+                android:maxLength="8"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_above="@+id/btnLogin"
-        android:id="@+id/tiLayer2"
-        android:hint="Password"
-        android:textColorHint="#77AE69"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/etPassword"
-            android:textSize="20sp"
-            android:layout_width="match_parent"
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tiLayer1"
+            android:id="@+id/tiLayer2"
             android:hint="Password"
-            android:inputType="textPassword"
-            android:textColor="#000000"
             android:textColorHint="#77AE69"
-            android:maxLength="8"
-            android:layout_height="wrap_content" />
-    </android.support.design.widget.TextInputLayout>
+            android:backgroundTint="#77ae69"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etPassword"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="#000000"
+                android:textColorHint="#77AE69"
+                android:maxLength="8"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="15dp"
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="LOGIN"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:background="@drawable/round_button"/>
+        <Button
+            android:layout_below="@id/tiLayer2"
+            android:layout_marginTop="15dp"
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="LOGIN"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:background="@drawable/round_button"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>
