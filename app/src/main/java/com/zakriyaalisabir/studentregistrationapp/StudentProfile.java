@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ public class StudentProfile extends AppCompatActivity {
     private DatabaseReference myRef;
     private TextView tvSN,tvSRN,tvSS,tvSB,tvSDP,tvSD;
 
+    private Button btnSM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +37,12 @@ public class StudentProfile extends AppCompatActivity {
         tvSDP=(TextView)findViewById(R.id.tvStudentDegreeProgram);
         tvSD=(TextView)findViewById(R.id.tvStudentDepartment);
 
+        btnSM=(Button)findViewById(R.id.btnStudentMenu);
+
         final ProgressDialog progressDialog=new ProgressDialog(StudentProfile.this  );
         progressDialog.setTitle("Checking Database");
         progressDialog.setMessage("Please wait.....");
+        progressDialog.setCancelable(false);
         progressDialog.show();
 
         final String scannedResult=getIntent().getStringExtra("scannedResult");
@@ -59,6 +65,14 @@ public class StudentProfile extends AppCompatActivity {
                     tvSB.setText("Batch : "+spi.studentBatch.toString());
                     tvSDP.setText("Degree : "+spi.studentDegreeProgram.toString());
                     tvSD.setText("Department : "+spi.studentDepartment.toString());
+
+                    btnSM.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(getApplicationContext(),StudentMenu.class));
+                        }
+                    });
+
                 }else {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(),"irrelevant QR code",Toast.LENGTH_LONG).show();
