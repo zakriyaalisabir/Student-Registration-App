@@ -56,6 +56,7 @@
             android:textAlignment="center"
             android:textSize="17sp"
             android:textStyle="bold"
+            android:textColor="#ffffff"
             android:entries="@array/whatToUpdate"
             android:background="@drawable/round_button">
 
@@ -63,11 +64,18 @@
         </Spinner>
 
         <Button
-            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="75dp"
             android:layout_below="@+id/spinnerUpdateStudentInfo"
             android:id="@+id/btnUpdateStudentInfo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="UPDATE"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:background="@drawable/round_button"/>
 
 
