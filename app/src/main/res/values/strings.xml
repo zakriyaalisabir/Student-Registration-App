@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">studentRegistrationApp</string>
+
+    <string-array name="whatToUpdate">
+        <item>Name</item>
+        <item>Department</item>
+        <item>Semester</item>
+        <item>Batch</item>
+        <item>Program</item>
+    </string-array>
+
 </resources>
