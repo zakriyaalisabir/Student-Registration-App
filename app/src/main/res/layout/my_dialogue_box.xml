@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_custom_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tiUpdateLayer1"
+        android:layout_width="match_parent"
+        android:hint="New Data"
+        android:textColorHint="#77ae69"
+        app:backgroundTint="#77ae69"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/etUpdateNewData"
+            app:backgroundTint="#77ae69"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:hint="New Data"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textColorHint="#77AE69"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+</RelativeLayout>
