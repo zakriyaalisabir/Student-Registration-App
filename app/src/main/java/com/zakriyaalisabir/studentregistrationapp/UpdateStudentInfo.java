@@ -61,7 +61,7 @@ public class UpdateStudentInfo extends AppCompatActivity implements MyDialogClas
 
     @Override
     public void applyTexts(String newData) {
-        newDataValue=newData;
+        newDataValue=newData.toUpperCase();
 //        Toast.makeText(getApplicationContext(),"new Data = "+newDataValue,Toast.LENGTH_LONG).show();
 
         selectedOption =spinner.getSelectedItem().toString();

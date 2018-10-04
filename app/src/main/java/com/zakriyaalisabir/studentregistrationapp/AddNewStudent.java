@@ -59,12 +59,12 @@ public class AddNewStudent extends AppCompatActivity {
                     return;
                 }else {
                     StudentProfileInfo spi=new StudentProfileInfo();
-                    spi.studentName=name;
-                    spi.studentRollNo=rollNo;
-                    spi.studentDegreeProgram=program;
-                    spi.studentDepartment=department;
-                    spi.studentBatch=batch;
-                    spi.studentSemester=semester;
+                    spi.studentName=name.toUpperCase();
+                    spi.studentRollNo=rollNo.toUpperCase();
+                    spi.studentDegreeProgram=program.toUpperCase();
+                    spi.studentDepartment=department.toUpperCase();
+                    spi.studentBatch=batch.toUpperCase();
+                    spi.studentSemester=semester.toUpperCase();
 
                     mRef.child(rollNo).setValue(spi);
 
