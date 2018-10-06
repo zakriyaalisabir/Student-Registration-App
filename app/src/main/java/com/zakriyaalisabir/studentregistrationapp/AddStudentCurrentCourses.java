@@ -74,6 +74,10 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         btnAC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressDialog.setTitle("Adding Course For A Student");
+                progressDialog.show();
+
                 String id=etSRN.getText().toString();
                 if(id.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Enter a alid student id ",Toast.LENGTH_LONG).show();
@@ -91,8 +95,9 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Course Successfully added",Toast.LENGTH_LONG).show();
 
-                etSRN.setText("");
+//                etSRN.setText("");
 
+                progressDialog.dismiss();
             }
         });
 

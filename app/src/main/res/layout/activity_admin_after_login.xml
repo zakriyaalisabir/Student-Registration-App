@@ -162,10 +162,50 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_marginLeft="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/btnRemoveStudentCurrentCourses"
+                android:background="@drawable/round_button"
+                android:src="@mipmap/add_student_result"/>
+
+            <TextView
+                android:gravity="center"
+                android:layout_below="@+id/btnRemoveStudentCurrentCourses"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="Remove Student\nCurrent Courses"/>
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnToChangePass"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="CHANGE PASSWORD"
+        android:background="@drawable/round_button"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

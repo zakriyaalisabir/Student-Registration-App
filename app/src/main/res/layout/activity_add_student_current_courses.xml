@@ -45,6 +45,7 @@
             android:text="Select Course Name From The Dropdown List Shown Below"/>
 
         <Spinner
+            android:gravity="center"
             android:id="@+id/spinnerToSelectCurrentCourseOfStudent"
             android:layout_marginTop="15dp"
             android:layout_below="@+id/tvNote"
