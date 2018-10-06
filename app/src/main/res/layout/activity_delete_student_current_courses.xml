@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".DeleteStudentCurrentCourses">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tiLayer1"
+            android:layout_width="match_parent"
+            android:hint="Enter Student ID"
+            android:textColorHint="#77ae69"
+            app:backgroundTint="#77ae69"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etStudentIdToDeleteCurrentCourse"
+                app:backgroundTint="#77ae69"
+                android:textSize="20sp"
+                android:layout_width="match_parent"
+                android:hint="Enter Student ID"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHint="#77AE69"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayer1"
+            android:id="@+id/btnLoadStudentCurrentCourses"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="LOAD COURSES"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/round_button"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:id="@+id/tvNote"
+            android:layout_below="@+id/btnLoadStudentCurrentCourses"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Select Course Name From The Dropdown List Shown Below"/>
+
+        <Spinner
+            android:gravity="center"
+            android:id="@+id/spinnerToDeleteCurrentCourseOfStudent"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tvNote"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"></Spinner>
+
+        <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/spinnerToDeleteCurrentCourseOfStudent"
+            android:id="@+id/btnDeleteStudentCurrentCourseByAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:text="REMOVE COURSE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="@drawable/round_button"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -33,7 +33,8 @@
         <activity android:name=".AddStudentCurrentCourses" />
         <activity android:name=".AddNewCoursesToDB" />
         <activity android:name=".AddStudentResult" />
-        <activity android:name=".ChangePasswordForAdmin"></activity>
+        <activity android:name=".ChangePasswordForAdmin" />
+        <activity android:name=".DeleteStudentCurrentCourses"></activity>
     </application>
 
 </manifest>

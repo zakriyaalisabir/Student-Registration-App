@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class AdminAfterLogin extends AppCompatActivity {
 
-    private ImageButton btnANS,btnUS,btnACOS,btnANCTDB,btnASR;
+    private ImageButton btnANS,btnUS,btnACOS,btnANCTDB,btnASR,btnDSCC;
     private Button btnTCP;
 
     @Override
@@ -25,6 +25,7 @@ public class AdminAfterLogin extends AppCompatActivity {
         btnACOS=(ImageButton)findViewById(R.id.btnAddStudentCurrentCourses);
         btnANCTDB=(ImageButton)findViewById(R.id.btnAddNewCourses);
         btnASR=(ImageButton)findViewById(R.id.btnAddResultForAStudent);
+        btnDSCC=(ImageButton)findViewById(R.id.btnRemoveStudentCurrentCourses);
 
         btnTCP=(Button)findViewById(R.id.btnToChangePass);
 
@@ -32,6 +33,13 @@ public class AdminAfterLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),ChangePasswordForAdmin.class));
+            }
+        });
+
+        btnDSCC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),DeleteStudentCurrentCourses.class));
             }
         });
 
