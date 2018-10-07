@@ -37,7 +37,7 @@ public class AddStudentResult extends AppCompatActivity {
         setContentView(R.layout.activity_add_student_result);
 
         mRef= FirebaseDatabase.getInstance().getReference("currentCourses");
-        mRef2=FirebaseDatabase.getInstance().getReference();
+        mRef2=FirebaseDatabase.getInstance().getReference("myCoursesHistory");
 
         btnAM=(Button)findViewById(R.id.btnUpdateMarks);
         btnLC=(Button)findViewById(R.id.btnLoadStudentCurrentCourses);
@@ -46,9 +46,10 @@ public class AddStudentResult extends AppCompatActivity {
         etSI=(EditText) findViewById(R.id.etStudentIdToAdResult);
         tvN2=(TextView)findViewById(R.id.tvNote2);
 
+        spSC.setVisibility(View.INVISIBLE);
         btnAM.setVisibility(View.INVISIBLE);
         tvN2.setVisibility(View.INVISIBLE);
-        etCM.setVisibility(View.INVISIBLE);
+        etCM.setVisibility(View.GONE);
 
         final ProgressDialog progressDialog=new ProgressDialog(AddStudentResult.this);
         progressDialog.setCancelable(false);
@@ -86,6 +87,7 @@ public class AddStudentResult extends AppCompatActivity {
                         tvN2.setVisibility(View.VISIBLE);
                         spSC.setVisibility(View.VISIBLE);
                         btnAM.setVisibility(View.VISIBLE);
+                        etCM.setVisibility(View.VISIBLE);
 
                         progressDialog.dismiss();
 
@@ -112,7 +114,10 @@ public class AddStudentResult extends AppCompatActivity {
                     progressDialog.dismiss();
                     return;
                 }
+
                 mRef.child(sId).child(cc).setValue(marks);
+                mRef2.child(sId).child(cc).setValue(marks);
+
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),"Marks Succesfully Updated",Toast.LENGTH_LONG).show();
 

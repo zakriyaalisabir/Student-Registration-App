@@ -23,6 +23,8 @@ public class StudentProfile extends AppCompatActivity {
 
     private Button btnSM;
 
+    private String scannedResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class StudentProfile extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-        final String scannedResult=getIntent().getStringExtra("scannedResult");
+        scannedResult=getIntent().getStringExtra("scannedResult");
 
         myRef.child(scannedResult).addValueEventListener(new ValueEventListener() {
             @Override
@@ -66,12 +68,6 @@ public class StudentProfile extends AppCompatActivity {
                     tvSDP.setText("Degree : "+spi.studentDegreeProgram.toString());
                     tvSD.setText("Department : "+spi.studentDepartment.toString());
 
-                    btnSM.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(getApplicationContext(),StudentMenu.class));
-                        }
-                    });
 
                 }else {
                     progressDialog.dismiss();
@@ -86,6 +82,16 @@ public class StudentProfile extends AppCompatActivity {
                 progressDialog.dismiss();
                 startActivity(new Intent(getApplicationContext(),QRScanner.class));
                 finish();
+            }
+        });
+
+
+        btnSM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),StudentMenu.class);
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
             }
         });
 

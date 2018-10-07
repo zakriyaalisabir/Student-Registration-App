@@ -10,10 +10,15 @@ public class StudentMenu extends AppCompatActivity {
 
     private Button btnMCC,btnMOC,btnMCR,btnMOR;
 
+    private String scannedResult;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_menu);
+
+
+        scannedResult=getIntent().getStringExtra("scannedResult");
 
         btnMCC=(Button)findViewById(R.id.btnMyCurrentCourses);
         btnMOC=(Button)findViewById(R.id.btnMyCourses);
@@ -23,25 +28,18 @@ public class StudentMenu extends AppCompatActivity {
         btnMCC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MyCurrentCourses.class));
+
+                Intent intent=new Intent(getApplicationContext(),MyCurrentCourses.class);
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
             }
         });
         btnMOC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MyCoursesHistory.class));
-            }
-        });
-        btnMCR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MyCurrentResults.class));
-            }
-        });
-        btnMOR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MyOverallResult.class));
+                Intent intent=new Intent(getApplicationContext(),MyCoursesHistory.class);
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
             }
         });
 
