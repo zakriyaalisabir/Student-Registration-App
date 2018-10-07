@@ -60,13 +60,13 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
         btnLC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 id=etSRN.getText().toString();
                 if(id.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Enter a valid student id ",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
-                progressDialog.show();
                 mRef.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

@@ -91,7 +91,7 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                     return;
                 }
 
-                mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue(true);
+                mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue("0");
 
                 Toast.makeText(getApplicationContext(),"Course Successfully added",Toast.LENGTH_LONG).show();
 
