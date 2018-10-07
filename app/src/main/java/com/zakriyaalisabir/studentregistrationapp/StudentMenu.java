@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class StudentMenu extends AppCompatActivity {
 
-    private Button btnMCC,btnMOC,btnMCR,btnMOR;
+    private Button btnMCC,btnMOC,btnRNC,btnRAC;
 
     private String scannedResult;
 
@@ -22,8 +22,8 @@ public class StudentMenu extends AppCompatActivity {
 
         btnMCC=(Button)findViewById(R.id.btnMyCurrentCourses);
         btnMOC=(Button)findViewById(R.id.btnMyCourses);
-        btnMCR=(Button)findViewById(R.id.btnMyCurrentResults);
-        btnMOR=(Button)findViewById(R.id.btnMyOverallResult);
+        btnRNC=(Button)findViewById(R.id.btnStudentAddNewCourse);
+        btnRAC=(Button)findViewById(R.id.btnStudentRemoveACourse);
 
         btnMCC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +38,23 @@ public class StudentMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(),MyCoursesHistory.class);
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
+            }
+        });
+        btnRNC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),AddStudentCurrentCourses.class);
+                intent.putExtra("pending","pending");
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
+            }
+        });
+        btnRAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),DeleteStudentCurrentCourses.class);
                 intent.putExtra("scannedResult",scannedResult);
                 startActivity(intent);
             }

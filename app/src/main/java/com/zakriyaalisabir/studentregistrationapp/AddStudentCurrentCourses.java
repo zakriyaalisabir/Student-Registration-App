@@ -25,12 +25,18 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
     private EditText etSRN;
     private Spinner spSC;
 
+    private String pending;
+
     private DatabaseReference mRef,mRefCourseHistory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student_current_courses);
+
+        if(getIntent().hasExtra("pending")){
+            pending=getIntent().getStringExtra("pending").toString();
+        }
 
         mRef=FirebaseDatabase.getInstance().getReference("courses");
         mRefCourseHistory=FirebaseDatabase.getInstance().getReference();
@@ -91,9 +97,14 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                     return;
                 }
 
-                mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue("0");
+                if(pending.equals("pending")){
+                    mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue(pending);
+                    mRefCourseHistory.child("myCoursesHistory").child(id).child(courseName).setValue(pending);
+                }else {
+                    mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue("0");
+                    mRefCourseHistory.child("myCoursesHistory").child(id).child(courseName).setValue(true);
+                }
 
-                mRefCourseHistory.child("myCoursesHistory").child(id).child(courseName).setValue("0");
 
                 Toast.makeText(getApplicationContext(),"Course Successfully added",Toast.LENGTH_LONG).show();
 

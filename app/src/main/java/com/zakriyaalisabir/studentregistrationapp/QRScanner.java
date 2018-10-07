@@ -58,10 +58,19 @@ public class QRScanner extends AppCompatActivity implements ZXingScannerView.Res
 
     @Override
     public void handleResult(Result result) {
-//        Toast.makeText(getApplicationContext(),""+result.getText().toString(),Toast.LENGTH_LONG).show();
+
+        String newResult=result.getText().toString();
+        int start=newResult.indexOf("\n")+1;
+        int last=newResult.indexOf("\n",start+1);
+
+        String resultString=newResult.substring(start,last);
+
+//        Toast.makeText(getApplicationContext(),"start="+start+"\nlast="+last+"\nsubString="+resultString+"\nsubStrLength="+resultString.length(),Toast.LENGTH_LONG).show();
+
 
         Intent intent=new Intent(getApplicationContext(),StudentProfile.class);
-        intent.putExtra("scannedResult",result.getText().toString());
+
+        intent.putExtra("scannedResult",resultString);
 
         startActivity(intent);
         finish();

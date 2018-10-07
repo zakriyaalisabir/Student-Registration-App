@@ -40,8 +40,8 @@
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:text="MY CURRENT RESULTS"
-            android:id="@+id/btnMyCurrentResults"
+            android:text="REGISTER NEW COURSE"
+            android:id="@+id/btnStudentAddNewCourse"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/round_button"/>
@@ -51,8 +51,8 @@
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:text="MY OVERALL RESULT"
-            android:id="@+id/btnMyOverallResult"
+            android:text="REMOVE A COURSE"
+            android:id="@+id/btnStudentRemoveACourse"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/round_button"/>

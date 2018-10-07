@@ -26,15 +26,13 @@
         <activity android:name=".StudentMenu" />
         <activity android:name=".MyCurrentCourses" />
         <activity android:name=".MyCoursesHistory" />
-        <activity android:name=".MyCurrentResults" />
-        <activity android:name=".MyOverallResult" />
         <activity android:name=".AddNewStudent" />
         <activity android:name=".UpdateStudentInfo" />
         <activity android:name=".AddStudentCurrentCourses" />
         <activity android:name=".AddNewCoursesToDB" />
         <activity android:name=".AddStudentResult" />
         <activity android:name=".ChangePasswordForAdmin" />
-        <activity android:name=".DeleteStudentCurrentCourses"></activity>
+        <activity android:name=".DeleteStudentCurrentCourses" />
     </application>
 
 </manifest>

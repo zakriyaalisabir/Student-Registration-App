@@ -16,7 +16,7 @@ public class AddNewStudent extends AppCompatActivity {
 
 
     private Button btnAdd;
-    private EditText etSN,etSRN,etSB,etSS,etSD,etSP;
+    private EditText etSN,etSRN,etSB,etSS,etSD,etSP,etSC;
 
     private DatabaseReference mRef;
 
@@ -35,6 +35,8 @@ public class AddNewStudent extends AppCompatActivity {
         etSD=(EditText)findViewById(R.id.etAddStudentDept);
         etSP=(EditText)findViewById(R.id.etAddStudentProgram);
         etSS=(EditText)findViewById(R.id.etAddStudentSemester);
+        etSC=(EditText)findViewById(R.id.etAddStudentCnic);
+
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,7 @@ public class AddNewStudent extends AppCompatActivity {
                 final String semester=etSS.getText().toString();
                 final String department=etSD.getText().toString();
                 final String program=etSP.getText().toString();
+                final String cnic=etSC.getText().toString();
 
                 final ProgressDialog progressDialog=new ProgressDialog(AddNewStudent.this);
                 progressDialog.setTitle("Adding New Student");
@@ -53,7 +56,7 @@ public class AddNewStudent extends AppCompatActivity {
                 progressDialog.show();
 
                 if(name.isEmpty() || rollNo.isEmpty() || batch.isEmpty() || semester.isEmpty()
-                        || department.isEmpty() || program.isEmpty()){
+                        || department.isEmpty() || program.isEmpty() || cnic.isEmpty()){
                     Toast.makeText(getApplicationContext(),"invalid info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
@@ -65,6 +68,9 @@ public class AddNewStudent extends AppCompatActivity {
                     spi.studentDepartment=department.toUpperCase();
                     spi.studentBatch=batch.toUpperCase();
                     spi.studentSemester=semester.toUpperCase();
+                    spi.studentCnic=cnic.toUpperCase();
+
+                    String sId=name+"\n"+rollNo+"\n"+cnic;
 
                     mRef.child(rollNo).setValue(spi);
 

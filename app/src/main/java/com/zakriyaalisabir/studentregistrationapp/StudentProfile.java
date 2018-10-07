@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class StudentProfile extends AppCompatActivity {
 
     private DatabaseReference myRef;
-    private TextView tvSN,tvSRN,tvSS,tvSB,tvSDP,tvSD;
+    private TextView tvSN,tvSRN,tvSS,tvSB,tvSDP,tvSD,tvSC;
 
     private Button btnSM;
 
@@ -38,6 +38,7 @@ public class StudentProfile extends AppCompatActivity {
         tvSB=(TextView)findViewById(R.id.tvStudentBatch);
         tvSDP=(TextView)findViewById(R.id.tvStudentDegreeProgram);
         tvSD=(TextView)findViewById(R.id.tvStudentDepartment);
+        tvSC=(TextView)findViewById(R.id.tvStudentCnic);
 
         btnSM=(Button)findViewById(R.id.btnStudentMenu);
 
@@ -67,6 +68,7 @@ public class StudentProfile extends AppCompatActivity {
                     tvSB.setText("Batch : "+spi.studentBatch.toString());
                     tvSDP.setText("Degree : "+spi.studentDegreeProgram.toString());
                     tvSD.setText("Department : "+spi.studentDepartment.toString());
+                    tvSC.setText("CNIC : "+spi.studentCnic.toString());
 
 
                 }else {
