@@ -25,8 +25,8 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:id="@+id/btnAddStudent"
                     android:background="@drawable/round_button"
                     android:src="@mipmap/add_student"/>
@@ -45,14 +45,14 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:id="@+id/btnUpdateStudent"
                     android:background="@drawable/round_button"
                     android:src="@mipmap/update_student_info"/>
@@ -70,22 +70,16 @@
 
             </RelativeLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
 
             <RelativeLayout
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:id="@+id/btnAddStudentCurrentCourses"
                     android:background="@drawable/round_button"
                     android:src="@mipmap/student_current_courses"/>
@@ -103,6 +97,15 @@
 
             </RelativeLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+
 
             <RelativeLayout
                 android:layout_marginLeft="40dp"
@@ -111,8 +114,8 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:id="@+id/btnAddNewCourses"
                     android:background="@drawable/round_button"
                     android:src="@mipmap/add_new_courses_for_registration"/>
@@ -143,8 +146,8 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:id="@+id/btnAddResultForAStudent"
                 android:background="@drawable/round_button"
                 android:src="@mipmap/add_student_result"/>
@@ -169,8 +172,8 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:id="@+id/btnRemoveStudentCurrentCourses"
                 android:background="@drawable/round_button"
                 android:src="@mipmap/add_student_result"/>
