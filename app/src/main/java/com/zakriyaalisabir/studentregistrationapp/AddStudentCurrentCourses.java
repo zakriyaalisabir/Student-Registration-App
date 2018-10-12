@@ -26,8 +26,9 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
     private Spinner spSC;
 
     private String pending;
+    private String sid;
 
-    private DatabaseReference mRef,mRefCourseHistory;
+    private DatabaseReference mRef,mReff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +40,16 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         }
 
         mRef=FirebaseDatabase.getInstance().getReference("courses");
-        mRefCourseHistory=FirebaseDatabase.getInstance().getReference();
+        mReff=FirebaseDatabase.getInstance().getReference();
 
         btnAC=(Button)findViewById(R.id.btnAddStudentCurrentCourseByAdmin);
         etSRN=(EditText)findViewById(R.id.etStudentIdToAddCurrentCourse);
         spSC=(Spinner)findViewById(R.id.spinnerToSelectCurrentCourseOfStudent);
+
+        if(getIntent().hasExtra("scannedResult")){
+            sid=getIntent().getStringExtra("scannedResult").toString();
+            etSRN.setText(sid);
+        }
 
         final ProgressDialog progressDialog=new ProgressDialog(AddStudentCurrentCourses.this);
         progressDialog.setCancelable(false);
@@ -98,11 +104,12 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                 }
 
                 if(pending.equals("pending")){
-                    mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue(pending);
-                    mRefCourseHistory.child("myCoursesHistory").child(id).child(courseName).setValue(pending);
+                    mReff.child("currentCourses").child(id).child(courseName).setValue(pending);
+                    mReff.child("myCoursesHistory").child(id).child(courseName).setValue(pending);
+                    mReff.child("registrationRequests").child(id).child(courseName).setValue(pending);
                 }else {
-                    mRefCourseHistory.child("currentCourses").child(id).child(courseName).setValue("0");
-                    mRefCourseHistory.child("myCoursesHistory").child(id).child(courseName).setValue(true);
+                    mReff.child("currentCourses").child(id).child(courseName).setValue("0");
+                    mReff.child("myCoursesHistory").child(id).child(courseName).setValue(true);
                 }
 
 

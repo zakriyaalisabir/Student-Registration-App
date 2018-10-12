@@ -246,13 +246,13 @@
                 <ImageButton
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:id="@+id/btnStudentLogout"
+                    android:id="@+id/btnAdmintLogout"
                     android:background="@drawable/round_button"
                     android:src="@mipmap/student_logout"/>
 
                 <TextView
                     android:gravity="center"
-                    android:layout_below="@+id/btnStudentLogout"
+                    android:layout_below="@+id/btnAdmintLogout"
                     android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

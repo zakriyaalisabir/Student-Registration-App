@@ -50,6 +50,12 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
         spSC.setVisibility(View.INVISIBLE);
         tvN.setVisibility(View.INVISIBLE);
 
+
+        if(getIntent().hasExtra("scannedResult")){
+            id=getIntent().getStringExtra("scannedResult").toString();
+            etSRN.setText(id);
+        }
+
         final ProgressDialog progressDialog=new ProgressDialog(DeleteStudentCurrentCourses.this);
         progressDialog.setCancelable(false);
         progressDialog.setTitle("Fetching Student's Courses From Database");

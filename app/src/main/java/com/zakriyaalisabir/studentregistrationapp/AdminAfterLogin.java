@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class AdminAfterLogin extends AppCompatActivity {
 
-    private ImageButton btnANS,btnUS,btnACOS,btnANCTDB,btnASR,btnDSCC;
+    private ImageButton btnANS,btnUS,btnACOS,btnANCTDB,btnASR,btnDSCC,btnVRR,btnRS,btnL;
     private Button btnTCP;
 
     @Override
@@ -26,8 +26,31 @@ public class AdminAfterLogin extends AppCompatActivity {
         btnANCTDB=(ImageButton)findViewById(R.id.btnAddNewCourses);
         btnASR=(ImageButton)findViewById(R.id.btnAddResultForAStudent);
         btnDSCC=(ImageButton)findViewById(R.id.btnRemoveStudentCurrentCourses);
+        btnVRR=(ImageButton)findViewById(R.id.btnViewRegistrations);
+        btnRS=(ImageButton)findViewById(R.id.btnRemoveStudent);
+        btnL=(ImageButton)findViewById(R.id.btnAdmintLogout);
 
         btnTCP=(Button)findViewById(R.id.btnToChangePass);
+
+        btnVRR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ViewRegistrationRequests.class));
+            }
+        });
+        btnRS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),RemoveStudentFromDB.class));
+            }
+        });
+        btnL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
 
         btnTCP.setOnClickListener(new View.OnClickListener() {
             @Override
