@@ -35,7 +35,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/D:/myDocx/Android/AndroidStudio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_assessment_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/D:/myDocx/Android/AndroidStudio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_exit_to_app_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -46,7 +46,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="iconShape" value="CIRCLE" />
-                                      <entry key="outputName" value="add_student_result" />
+                                      <entry key="outputName" value="student_logout" />
                                     </map>
                                   </option>
                                 </PersistentState>

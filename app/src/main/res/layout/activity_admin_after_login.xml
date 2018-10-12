@@ -20,9 +20,9 @@
             android:orientation="horizontal">
 
             <RelativeLayout
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:layout_width="80dp"
@@ -40,15 +40,14 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:gravity="center"
-                    android:text="Add New\nStudent"/>
+                    android:text="Add\nNew\nStudent"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_marginLeft="10dp"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:layout_width="80dp"
@@ -66,16 +65,15 @@
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:text="Update Info\nOf A Student"/>
+                    android:text="Update\nStudent\nInfo"/>
 
             </RelativeLayout>
 
 
             <RelativeLayout
-                android:layout_marginLeft="10dp"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:layout_width="80dp"
@@ -93,22 +91,19 @@
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:text="Add Current\nCourses Of A\nStudent"/>
+                    android:text="Add\nStudent\nCourses"/>
 
             </RelativeLayout>
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-
-
-
             <RelativeLayout
-                android:layout_marginLeft="40dp"
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -129,70 +124,146 @@
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:text="Add New\nCourses To\nOur Database"/>
+                    android:text="Add\nCourses\nTo DB"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/btnAddResultForAStudent"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/add_student_result"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnAddResultForAStudent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Update\nStudent\nResult"/>
 
             </RelativeLayout>
 
-        </LinearLayout><LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:id="@+id/btnAddResultForAStudent"
-                android:background="@drawable/round_button"
-                android:src="@mipmap/add_student_result"/>
-
-            <TextView
-                android:gravity="center"
-                android:layout_below="@+id/btnAddResultForAStudent"
-                android:layout_centerHorizontal="true"
+            <RelativeLayout
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="Add Student\nResult"/>
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/btnRemoveStudentCurrentCourses"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/remove_student_courses"/>
 
-        <RelativeLayout
-            android:layout_marginLeft="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnRemoveStudentCurrentCourses"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Remove\nStudent\nCourses"/>
 
-            <ImageButton
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:id="@+id/btnRemoveStudentCurrentCourses"
-                android:background="@drawable/round_button"
-                android:src="@mipmap/add_student_result"/>
+            </RelativeLayout>
 
-            <TextView
-                android:gravity="center"
-                android:layout_below="@+id/btnRemoveStudentCurrentCourses"
-                android:layout_centerHorizontal="true"
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="Remove Student\nCurrent Courses"/>
+                android:layout_height="wrap_content">
 
-        </RelativeLayout>
 
-    </LinearLayout>
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/btnRemoveStudent"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/remove_student_from_db"/>
 
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnRemoveStudent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Remove\nStudent\nFrom DB"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/btnViewRegistrations"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/remove_requests"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnViewRegistrations"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="View\nRegister\nRequests"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/btnStudentLogout"
+                    android:background="@drawable/round_button"
+                    android:src="@mipmap/student_logout"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_below="@+id/btnStudentLogout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:text="Logout"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
 
 
     </LinearLayout>
