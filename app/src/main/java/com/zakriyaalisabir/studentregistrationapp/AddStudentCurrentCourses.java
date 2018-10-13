@@ -42,10 +42,6 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         canRegister=0;
         isRegistered="false";
 
-        if(getIntent().hasExtra("pending")){
-            pending=getIntent().getStringExtra("pending").toString();
-        }
-
         mRef=FirebaseDatabase.getInstance().getReference("courses");
         mReff=FirebaseDatabase.getInstance().getReference();
 
@@ -111,7 +107,7 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                 String semester=spSS.getSelectedItem().toString();
 
                 if(courseName.isEmpty() || semester.equals("Select Semester")){
-                    Toast.makeText(getApplicationContext(),"Course name is invalid ",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Invalid info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
@@ -158,11 +154,12 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                 }
 
 
-                if(pending.equals("pending")){
+                if(getIntent().hasExtra("pending")){
+                    pending=getIntent().getStringExtra("pending").toString();
                     mReff.child("currentCourses").child(id).child(semester).child(courseName).setValue(pending);
                     mReff.child("registrationRequests").child(id).child(semester).child(courseName).setValue(pending);
                 }else {
-                    mReff.child("currentCourses").child(id).child(semester).child(courseName).setValue("0");
+                    mReff.child("currentCourses").child(id).child(semester).child(courseName).setValue("registered");
                 }
 
 

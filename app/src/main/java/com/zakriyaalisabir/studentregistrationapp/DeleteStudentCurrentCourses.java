@@ -24,11 +24,11 @@ import java.util.List;
 public class DeleteStudentCurrentCourses extends AppCompatActivity {
     private Button btnAC,btnLC;
     private EditText etSRN;
-    private Spinner spSC;
+    private Spinner spSC,spSS;
 
     private TextView tvN;
 
-    private String id;
+    private String id,sem;
 
     private DatabaseReference mRef,mRefCourseHistory;
 
@@ -44,6 +44,7 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
         btnLC=(Button)findViewById(R.id.btnLoadStudentCurrentCourses);
         etSRN=(EditText)findViewById(R.id.etStudentIdToDeleteCurrentCourse);
         spSC=(Spinner)findViewById(R.id.spinnerToDeleteCurrentCourseOfStudent);
+        spSS=(Spinner)findViewById(R.id.spSelectSemester);
         tvN=(TextView)findViewById(R.id.tvNote);
 
         btnAC.setVisibility(View.INVISIBLE);
@@ -68,12 +69,13 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
             public void onClick(View v) {
                 progressDialog.show();
                 id=etSRN.getText().toString();
-                if(id.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Enter a valid student id ",Toast.LENGTH_LONG).show();
+                sem=spSS.getSelectedItem().toString();
+                if(id.isEmpty() || sem.equals("Select Semester")){
+                    Toast.makeText(getApplicationContext(),"Invalid Info ",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
-                mRef.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+                mRef.child(id).child(sem).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot ds:dataSnapshot.getChildren()){
@@ -121,7 +123,8 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
                     return;
                 }
 
-                mRefCourseHistory.child("currentCourses").child(id).child(courseName).removeValue();
+                mRefCourseHistory.child("currentCourses").child(id).child(sem).child(courseName).removeValue();
+                mRefCourseHistory.child("results").child(id).child(sem).child(courseName).removeValue();
 
                 Toast.makeText(getApplicationContext(),"Course Successfully Removed",Toast.LENGTH_LONG).show();
 

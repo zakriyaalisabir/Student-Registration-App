@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class StudentMenu extends AppCompatActivity {
 
-    private Button btnMCC,btnMOC,btnRNC,btnRAC;
+    private Button btnMCC,btnMR,btnRNC,btnRAC;
 
     private String scannedResult;
 
@@ -21,7 +21,7 @@ public class StudentMenu extends AppCompatActivity {
         scannedResult=getIntent().getStringExtra("scannedResult");
 
         btnMCC=(Button)findViewById(R.id.btnMyCurrentCourses);
-        btnMOC=(Button)findViewById(R.id.btnMyCourses);
+        btnMR=(Button)findViewById(R.id.btnMyResults);
         btnRNC=(Button)findViewById(R.id.btnStudentAddNewCourse);
         btnRAC=(Button)findViewById(R.id.btnStudentRemoveACourse);
 
@@ -34,12 +34,12 @@ public class StudentMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btnMOC.setOnClickListener(new View.OnClickListener() {
+        btnMR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent=new Intent(getApplicationContext(),MyCoursesHistory.class);
-//                intent.putExtra("scannedResult",scannedResult);
-//                startActivity(intent);
+                Intent intent=new Intent(getApplicationContext(),MyResults.class);
+                intent.putExtra("scannedResult",scannedResult);
+                startActivity(intent);
             }
         });
         btnRNC.setOnClickListener(new View.OnClickListener() {

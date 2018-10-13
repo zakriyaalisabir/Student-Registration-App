@@ -19,7 +19,7 @@ public class RemoveStudentFromDB extends AppCompatActivity {
     private Button btnR;
     private EditText etN,etId,etC;
 
-    private DatabaseReference mRef;
+    private DatabaseReference mRef,mRef2,mRef3;
 
     private String name,cnic,id;
 
@@ -29,6 +29,8 @@ public class RemoveStudentFromDB extends AppCompatActivity {
         setContentView(R.layout.activity_remove_student_from_db);
 
         mRef= FirebaseDatabase.getInstance().getReference("users");
+        mRef2= FirebaseDatabase.getInstance().getReference("currentCourses");
+        mRef3= FirebaseDatabase.getInstance().getReference("results");
 
         btnR=(Button)findViewById(R.id.btnRemoveStudentFromDB);
         etN=(EditText)findViewById(R.id.etStudentName);
@@ -52,28 +54,41 @@ public class RemoveStudentFromDB extends AppCompatActivity {
                 if(name.isEmpty() || id.isEmpty() || cnic.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Invalid info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
-                    return;
-                }
-                mRef.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        StudentProfileInfo spi=dataSnapshot.getValue(StudentProfileInfo.class);
-                        if(cnic.equals(spi.studentCnic) && name.equals(spi.studentName)){
-                            mRef.child(id).removeValue();
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(),"Student Successfully removed from DB",Toast.LENGTH_LONG).show();
-                        }else {
-                            progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(),"Invalid Info",Toast.LENGTH_LONG).show();
-                        }
-                    }
+                }else {
+                    mRef.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if(!dataSnapshot.hasChildren()){
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(),"Invalid Info",Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                            StudentProfileInfo spi=dataSnapshot.getValue(StudentProfileInfo.class);
+                            if(cnic.equals(spi.studentCnic) && name.equals(spi.studentName)){
+                                mRef.child(id).setValue(null);
+                                mRef2.child(id).setValue(null);
+                                mRef3.child(id).setValue(null);
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(),"Student Successfully removed from DB",Toast.LENGTH_LONG).show();
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        progressDialog.dismiss();
-                        Toast.makeText(getApplicationContext(),"invalid info",Toast.LENGTH_LONG).show();
-                    }
-                });
+                                etN.setText("");
+                                etId.setText("");
+                                etC.setText("");
+
+                            }else {
+                                progressDialog.dismiss();
+                                Toast.makeText(getApplicationContext(),"Failed to remove student.",Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getApplicationContext(),"database error",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
             }
         });
 

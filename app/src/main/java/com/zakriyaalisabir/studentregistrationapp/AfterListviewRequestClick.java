@@ -50,6 +50,7 @@ public class AfterListviewRequestClick extends AppCompatActivity {
                 mRef1.child(sid).child(sem).child(course).setValue("registered");
                 mRef3.child(sid).child(sem).child(course).removeValue();
                 startActivity(new Intent(getApplicationContext(),ViewRegistrationRequests.class));
+                finish();
             }
         });
 
@@ -59,6 +60,7 @@ public class AfterListviewRequestClick extends AppCompatActivity {
                 mRef1.child(sid).child(sem).child(course).setValue("rejected");
                 mRef3.child(sid).child(sem).child(course).removeValue();
                 startActivity(new Intent(getApplicationContext(),ViewRegistrationRequests.class));
+                finish();
             }
         });
 
