@@ -1,11 +1,15 @@
 package com.zakriyaalisabir.studentregistrationapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,13 +19,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class ViewRegistrationRequests extends AppCompatActivity {
 
     private ListView lv;
-    private ArrayList <String> requests;
+    private List<String> requests;
 
     private DatabaseReference mRef;
+
+    private ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +48,37 @@ public class ViewRegistrationRequests extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.show();
 
+        arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_list_view_layout,requests);
+
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
-                    Log.d("ds = ", ""+ds);
-                    String req=ds.getValue(String.class);
-                    requests.add(req);
+                    String sid=ds.getKey().toString();
+                    for(DataSnapshot ds1:ds.getChildren()){
+                        String city=ds1.getKey().toString();
+                        for(DataSnapshot ds2:ds1.getChildren()){
+                            String sem=ds2.getKey().toString();
+                            for(DataSnapshot ds3:ds2.getChildren()){
+                                String course=ds3.getKey().toString();
+                                String req="CIIT/"+sid+"/"+city+"#"+sem+"#"+course;
+                                Toast.makeText(getApplicationContext(),"req = "+req,Toast.LENGTH_LONG).show();
+                                int index=requests.size();
+                                requests.add(index,req);
+                                Log.d("req = ", ""+req);
+                            }
+                        }
+                    }
                 }
-                Log.d("requestArray ==> ", ""+requests);
+                if (requests.size()<1){
+                    Toast.makeText(getApplicationContext(),"no requests yet",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                    finish();
+                    return;
+                }
+
+                lv.setAdapter(arrayAdapter);
+                Toast.makeText(getApplicationContext(),"Requests fetched successfully",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
             }
 
@@ -59,14 +89,19 @@ public class ViewRegistrationRequests extends AppCompatActivity {
             }
         });
 
-        if (requests.size()<1){
-            Toast.makeText(getApplicationContext(),"no requests yet",Toast.LENGTH_LONG).show();
-            return;
-        }
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getApplicationContext(),AfterListviewRequestClick.class);
+                String request=((TextView)view).getText().toString();
+                intent.putExtra("request",request);
+                intent.putExtra("requestId",position);
+                startActivity(intent);
+            }
+        });
 
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_list_view_layout,R.id.tvListView,requests);
-
-        lv.setAdapter(arrayAdapter);
+        lv.invalidateViews();
+        arrayAdapter.notifyDataSetChanged();
 
     }
 }

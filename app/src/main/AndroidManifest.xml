@@ -25,7 +25,6 @@
         <activity android:name=".AdminAfterLogin" />
         <activity android:name=".StudentMenu" />
         <activity android:name=".MyCurrentCourses" />
-        <activity android:name=".MyCoursesHistory" />
         <activity android:name=".AddNewStudent" />
         <activity android:name=".UpdateStudentInfo" />
         <activity android:name=".AddStudentCurrentCourses" />
@@ -34,7 +33,9 @@
         <activity android:name=".ChangePasswordForAdmin" />
         <activity android:name=".DeleteStudentCurrentCourses" />
         <activity android:name=".RemoveStudentFromDB" />
-        <activity android:name=".ViewRegistrationRequests"></activity>
+        <activity android:name=".ViewRegistrationRequests" />
+        <activity android:name=".AfterListviewRequestClick" />
+        <activity android:name=".MyResults"></activity>
     </application>
 
 </manifest>

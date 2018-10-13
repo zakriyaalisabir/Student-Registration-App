@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="30dp"
+    android:weightSum="1"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ViewRegistrationRequests">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl">
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:id="@+id/tvRequests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:text="Requests"
+            android:textAlignment="center"
+            android:gravity="center"
+            />
+
+    </RelativeLayout>
+
     <ListView
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/rl"
         android:id="@+id/lvRequests"
         android:layout_width="match_parent"
         android:dividerHeight="5dp"
+        android:smoothScrollbar="true"
         android:divider="#ffffff"
         android:listSelector="@drawable/round_button"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content"></ListView>
 
-</RelativeLayout>
+</LinearLayout>

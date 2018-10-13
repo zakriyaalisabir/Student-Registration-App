@@ -33,13 +33,20 @@
                 android:layout_height="wrap_content" />
         </android.support.design.widget.TextInputLayout>
 
+        <Spinner
+            android:layout_below="@id/tiLayer1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:entries="@array/semesterList"
+            android:id="@+id/spSelectSemester"></Spinner>
+
         <TextView
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:gravity="center"
             android:id="@+id/tvNote"
-            android:layout_below="@+id/tiLayer1"
+            android:layout_below="@+id/spSelectSemester"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Select Course Name From The Dropdown List Shown Below"/>
@@ -47,7 +54,6 @@
         <Spinner
             android:gravity="center"
             android:id="@+id/spinnerToSelectCurrentCourseOfStudent"
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/tvNote"
             android:layout_width="match_parent"
             android:layout_height="50dp"></Spinner>

@@ -23,11 +23,11 @@ import java.util.List;
 public class AddStudentResult extends AppCompatActivity {
 
     private Button btnLC,btnAM;
-    private Spinner spSC;
+    private Spinner spSC,spSS;
     private EditText etSI,etCM;
     private TextView tvN2;
 
-    private String sId;
+    private String sId,sem;
 
     private DatabaseReference mRef,mRef2;
 
@@ -37,11 +37,12 @@ public class AddStudentResult extends AppCompatActivity {
         setContentView(R.layout.activity_add_student_result);
 
         mRef= FirebaseDatabase.getInstance().getReference("currentCourses");
-        mRef2=FirebaseDatabase.getInstance().getReference("myCoursesHistory");
+        mRef2=FirebaseDatabase.getInstance().getReference("results");
 
         btnAM=(Button)findViewById(R.id.btnUpdateMarks);
         btnLC=(Button)findViewById(R.id.btnLoadStudentCurrentCourses);
         spSC=(Spinner)findViewById(R.id.spinnerToSelectCurrentCourseOfStudentToAddMarks);
+        spSS=(Spinner)findViewById(R.id.spSelectSemester);
         etCM=(EditText) findViewById(R.id.etSubjectMarks);
         etSI=(EditText) findViewById(R.id.etStudentIdToAdResult);
         tvN2=(TextView)findViewById(R.id.tvNote2);
@@ -62,14 +63,15 @@ public class AddStudentResult extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sId=etSI.getText().toString();
+                sem=spSS.getSelectedItem().toString();
                 progressDialog.show();
-                if(sId.isEmpty()){
+                if(sId.isEmpty() || sem.equals("Select Semester")){
                     Toast.makeText(getApplicationContext(),"Invalid Id",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
 
-                mRef.child(sId).addListenerForSingleValueEvent(new ValueEventListener() {
+                mRef.child(sId).child(sem).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot ds:dataSnapshot.getChildren()){
@@ -115,8 +117,7 @@ public class AddStudentResult extends AppCompatActivity {
                     return;
                 }
 
-                mRef.child(sId).child(cc).setValue(marks);
-                mRef2.child(sId).child(cc).setValue(marks);
+                mRef2.child(sId).child(sem).child(cc).setValue(marks);
 
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(),"Marks Succesfully Updated",Toast.LENGTH_LONG).show();

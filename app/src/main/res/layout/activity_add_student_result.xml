@@ -33,10 +33,18 @@
                 android:layout_height="wrap_content" />
         </android.support.design.widget.TextInputLayout>
 
+        <Spinner
+            android:gravity="center"
+            android:id="@+id/spSelectSemester"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayer1"
+            android:layout_width="match_parent"
+            android:entries="@array/semesterList"
+            android:layout_height="50dp"></Spinner>
 
         <Button
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/tiLayer1"
+            android:layout_below="@+id/spSelectSemester"
             android:id="@+id/btnLoadStudentCurrentCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"

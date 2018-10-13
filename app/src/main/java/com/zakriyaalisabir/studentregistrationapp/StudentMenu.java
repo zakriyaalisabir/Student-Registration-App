@@ -37,9 +37,9 @@ public class StudentMenu extends AppCompatActivity {
         btnMOC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),MyCoursesHistory.class);
-                intent.putExtra("scannedResult",scannedResult);
-                startActivity(intent);
+//                Intent intent=new Intent(getApplicationContext(),MyCoursesHistory.class);
+//                intent.putExtra("scannedResult",scannedResult);
+//                startActivity(intent);
             }
         });
         btnRNC.setOnClickListener(new View.OnClickListener() {
