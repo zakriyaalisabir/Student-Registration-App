@@ -35,7 +35,8 @@
         <activity android:name=".RemoveStudentFromDB" />
         <activity android:name=".ViewRegistrationRequests" />
         <activity android:name=".AfterListviewRequestClick" />
-        <activity android:name=".MyResults"></activity>
+        <activity android:name=".MyResults" />
+        <activity android:name=".RemoveCourseFromDB"></activity>
     </application>
 
 </manifest>

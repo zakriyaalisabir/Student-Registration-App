@@ -248,7 +248,7 @@
                     android:layout_height="80dp"
                     android:id="@+id/btnAdmintLogout"
                     android:background="@drawable/round_button"
-                    android:src="@mipmap/student_logout"/>
+                    android:src="@mipmap/remove_courses_from_db_by_admin"/>
 
                 <TextView
                     android:gravity="center"
@@ -259,7 +259,7 @@
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:text="Logout"/>
+                    android:text="Remove\nCourse\nFrom DB"/>
 
             </RelativeLayout>
 
