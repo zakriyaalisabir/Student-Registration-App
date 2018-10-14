@@ -16,6 +16,7 @@ public class AfterListviewRequestClick extends AppCompatActivity {
     private Button btnA,btnR;
 
     private String request;
+    private String reqId;
 
     private DatabaseReference mRef1,mRef3;
 
@@ -36,7 +37,8 @@ public class AfterListviewRequestClick extends AppCompatActivity {
             return;
         }
 
-        request=getIntent().getStringExtra("request").toString();
+        request=getIntent().getStringExtra("request");
+        reqId=getIntent().getStringExtra("requestId");
 
         final String sid=request.substring(0,21);
         final String sem=request.substring(22,23);
@@ -49,7 +51,9 @@ public class AfterListviewRequestClick extends AppCompatActivity {
             public void onClick(View v) {
                 mRef1.child(sid).child(sem).child(course).setValue("registered");
                 mRef3.child(sid).child(sem).child(course).removeValue();
-                startActivity(new Intent(getApplicationContext(),ViewRegistrationRequests.class));
+                Intent intent=new Intent(getApplicationContext(),ViewRegistrationRequests.class);
+                intent.putExtra("reqId",reqId);
+                startActivity(intent);
                 finish();
             }
         });
@@ -59,7 +63,9 @@ public class AfterListviewRequestClick extends AppCompatActivity {
             public void onClick(View v) {
                 mRef1.child(sid).child(sem).child(course).setValue("rejected");
                 mRef3.child(sid).child(sem).child(course).removeValue();
-                startActivity(new Intent(getApplicationContext(),ViewRegistrationRequests.class));
+                Intent intent=new Intent(getApplicationContext(),ViewRegistrationRequests.class);
+                intent.putExtra("reqId",reqId);
+                startActivity(intent);
                 finish();
             }
         });

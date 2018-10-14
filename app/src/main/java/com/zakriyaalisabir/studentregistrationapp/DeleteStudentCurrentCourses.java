@@ -124,6 +124,7 @@ public class DeleteStudentCurrentCourses extends AppCompatActivity {
                 }
 
                 mRefCourseHistory.child("currentCourses").child(id).child(sem).child(courseName).removeValue();
+                mRefCourseHistory.child("registrationRequests").child(id).child(sem).child(courseName).removeValue();
                 mRefCourseHistory.child("results").child(id).child(sem).child(courseName).removeValue();
 
                 Toast.makeText(getApplicationContext(),"Course Successfully Removed",Toast.LENGTH_LONG).show();

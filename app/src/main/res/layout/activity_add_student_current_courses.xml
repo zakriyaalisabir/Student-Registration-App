@@ -38,19 +38,22 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:entries="@array/semesterList"
-            android:id="@+id/spSelectSemester"></Spinner>
+            android:id="@+id/spSelectSemesterNC"></Spinner>
 
         <Button
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="LOAD COURSES"
+            android:textSize="25sp"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:background="@drawable/round_button"
             android:id="@+id/btnLoadCourses"
-            android:layout_below="@+id/spSelectSemester"/>
+            android:layout_below="@+id/spSelectSemesterNC"/>
 
         <TextView
             android:layout_marginTop="10dp"

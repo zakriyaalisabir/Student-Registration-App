@@ -49,8 +49,9 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         btnLC=(Button)findViewById(R.id.btnLoadCourses);
         etSRN=(EditText)findViewById(R.id.etStudentIdToAddCurrentCourse);
         spSC=(Spinner)findViewById(R.id.spinnerToSelectCurrentCourseOfStudent);
-        spSS=(Spinner)findViewById(R.id.spSelectSemester);
+        spSS=(Spinner)findViewById(R.id.spSelectSemesterNC);
 
+        btnAC.setVisibility(View.INVISIBLE);
 
         if(getIntent().hasExtra("scannedResult")){
             sid=getIntent().getStringExtra("scannedResult").toString();
@@ -70,6 +71,9 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                spinnerArrayList.clear();//refreshing courses
+                coursesList.clear();
+
                 progressDialog.show();
                 sem=spSS.getSelectedItem().toString();
                 if(sem.equals("Select Semester")){
@@ -83,9 +87,9 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         for(DataSnapshot ds:dataSnapshot.getChildren()){
                             Course course=ds.getValue(Course.class);
-                            coursesList.add(course);
                             if(sem.equals(course.semester)){
-
+                                btnAC.setVisibility(View.VISIBLE);
+                                coursesList.add(course);
                                 spinnerArrayList.add(course.name);
                             }
                         }
@@ -117,14 +121,15 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
                 progressDialog.show();
 
                 String id=etSRN.getText().toString();
+                String courseName=spSC.getSelectedItem().toString();
+                String semester=spSS.getSelectedItem().toString();
+
                 if(id.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Enter a valid student id ",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
 
-                String courseName=spSC.getSelectedItem().toString();
-                String semester=spSS.getSelectedItem().toString();
 
                 if(courseName.isEmpty() || semester.equals("Select Semester")){
                     Toast.makeText(getApplicationContext(),"Invalid info",Toast.LENGTH_LONG).show();
