@@ -108,6 +108,9 @@ public class RemoveCourseFromDB extends AppCompatActivity {
                     return;
                 }
                 mRef.child(course).removeValue();
+
+                Toast.makeText(getApplicationContext(),"Course Successfully Removed From DB",Toast.LENGTH_LONG).show();
+                progressDialog.dismiss();
             }
         });
 
