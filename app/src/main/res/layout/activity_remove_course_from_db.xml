@@ -42,7 +42,7 @@
             android:id="@+id/spSelectCourseToDel"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:entries="@array/semesterList"></Spinner>
+            android:entries="@array/coursesList"></Spinner>
 
         <Button
             android:id="@+id/btnRemoveCourseFromDb"

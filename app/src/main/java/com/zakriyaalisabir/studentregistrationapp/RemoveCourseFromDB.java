@@ -58,38 +58,7 @@ public class RemoveCourseFromDB extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                progressDialog.show();
-
-                coursesNamesList.clear();
-                arrayAdapter.clear();
-
-                semester=spSS.getSelectedItem().toString();
-                if(semester.isEmpty() || semester.equals("Select Semester")){
-                    Toast.makeText(getApplicationContext(),"Please Choose Semester (Invalid Semester)",Toast.LENGTH_LONG).show();
-                    progressDialog.dismiss();
-                    return;
-                }else {
-                    mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(dataSnapshot.hasChildren()){
-                                for(DataSnapshot ds:dataSnapshot.getChildren()){
-                                    Course course=ds.getValue(Course.class);
-                                    if(semester.equals(course.semester)){
-                                        coursesNamesList.add(course.name);
-                                    }
-                                }
-                                progressDialog.dismiss();
-                                spSC.setAdapter(arrayAdapter);
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                            progressDialog.dismiss();
-                        }
-                    });
-                }
+               fetchData();
 
             }
         });
@@ -102,7 +71,7 @@ public class RemoveCourseFromDB extends AppCompatActivity {
                 progressDialog.setTitle("Removing Course");
                 progressDialog.show();
 
-                if(course.isEmpty()){
+                if(course.isEmpty() || course.equals("Select Course")){
                     Toast.makeText(getApplicationContext(),"Invalid Course Name",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
@@ -111,8 +80,48 @@ public class RemoveCourseFromDB extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Course Successfully Removed From DB",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
+
+                fetchData();
             }
         });
+
+    }
+
+    private void fetchData() {
+
+        progressDialog.show();
+
+        coursesNamesList.clear();
+        arrayAdapter.clear();
+        coursesNamesList.add("Select Course");
+
+        semester=spSS.getSelectedItem().toString();
+        if(semester.isEmpty() || semester.equals("Select Semester")){
+            Toast.makeText(getApplicationContext(),"Please Choose Semester (Invalid Semester)",Toast.LENGTH_LONG).show();
+            progressDialog.dismiss();
+            return;
+        }else {
+            mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.hasChildren()){
+                        for(DataSnapshot ds:dataSnapshot.getChildren()){
+                            Course course=ds.getValue(Course.class);
+                            if(semester.equals(course.semester)){
+                                coursesNamesList.add(course.name);
+                            }
+                        }
+                        progressDialog.dismiss();
+                        spSC.setAdapter(arrayAdapter);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    progressDialog.dismiss();
+                }
+            });
+        }
 
     }
 }

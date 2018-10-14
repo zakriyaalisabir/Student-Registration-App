@@ -21,4 +21,9 @@
         <item>8</item>
     </string-array>
 
+
+    <string-array name="coursesList">
+        <item>Select Course</item>
+    </string-array>
+
 </resources>
