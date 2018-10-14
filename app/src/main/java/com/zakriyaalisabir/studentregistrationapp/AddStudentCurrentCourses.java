@@ -21,7 +21,7 @@ import java.util.List;
 
 public class AddStudentCurrentCourses extends AppCompatActivity {
 
-    private Button btnAC;
+    private Button btnAC,btnLC;
     private EditText etSRN;
     private Spinner spSC,spSS;
 
@@ -30,7 +30,7 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
 
     private int canRegister;
     private String isRegistered;
-    private String preReq;
+    private String preReq,sem;
 
     private DatabaseReference mRef,mReff;
 
@@ -46,9 +46,11 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         mReff=FirebaseDatabase.getInstance().getReference();
 
         btnAC=(Button)findViewById(R.id.btnAddStudentCurrentCourseByAdmin);
+        btnLC=(Button)findViewById(R.id.btnLoadCourses);
         etSRN=(EditText)findViewById(R.id.etStudentIdToAddCurrentCourse);
         spSC=(Spinner)findViewById(R.id.spinnerToSelectCurrentCourseOfStudent);
         spSS=(Spinner)findViewById(R.id.spSelectSemester);
+
 
         if(getIntent().hasExtra("scannedResult")){
             sid=getIntent().getStringExtra("scannedResult").toString();
@@ -59,35 +61,53 @@ public class AddStudentCurrentCourses extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setTitle("Fetching Courses From Server");
         progressDialog.setMessage("Please wait ...");
-        progressDialog.show();
 
         final List<String> spinnerArrayList=new ArrayList<String>();
         final List<Course> coursesList=new ArrayList<Course>();
 
-        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        btnLC.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds:dataSnapshot.getChildren()){
-                    Course course=ds.getValue(Course.class);
-                    coursesList.add(course);
-                    spinnerArrayList.add(course.name);
+            public void onClick(View v) {
+
+                progressDialog.show();
+                sem=spSS.getSelectedItem().toString();
+                if(sem.equals("Select Semester")){
+                    Toast.makeText(getApplicationContext(),"Kindly Select Semeter .",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                    return;
                 }
-                ArrayAdapter<String> adapter=new ArrayAdapter<String>(
-                        AddStudentCurrentCourses.this,
-                        android.R.layout.simple_spinner_item,
-                        spinnerArrayList);
 
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spSC.setAdapter(adapter);
+                mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for(DataSnapshot ds:dataSnapshot.getChildren()){
+                            Course course=ds.getValue(Course.class);
+                            coursesList.add(course);
+                            if(sem.equals(course.semester)){
 
-                progressDialog.dismiss();
-            }
+                                spinnerArrayList.add(course.name);
+                            }
+                        }
+                        ArrayAdapter<String> adapter=new ArrayAdapter<String>(
+                                AddStudentCurrentCourses.this,
+                                android.R.layout.simple_spinner_item,
+                                spinnerArrayList);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                progressDialog.dismiss();
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        spSC.setAdapter(adapter);
+
+                        progressDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        progressDialog.dismiss();
+                    }
+                });
             }
         });
+
 
         btnAC.setOnClickListener(new View.OnClickListener() {
             @Override

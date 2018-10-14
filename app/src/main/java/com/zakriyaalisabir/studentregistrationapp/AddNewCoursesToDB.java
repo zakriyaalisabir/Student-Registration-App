@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class AddNewCoursesToDB extends AppCompatActivity {
 
     private DatabaseReference mRef;
-    private EditText etCN,etCPRN;
+    private EditText etCN,etCPRN,etSS;
     private Button btnAdd;
 
     @Override
@@ -27,6 +27,7 @@ public class AddNewCoursesToDB extends AppCompatActivity {
         btnAdd=(Button)findViewById(R.id.btnAddNewCourseToDb);
         etCN=(EditText)findViewById(R.id.etNewCourseName);
         etCPRN=(EditText)findViewById(R.id.etNewCoursePreReqName);
+        etSS=(EditText)findViewById(R.id.etNewCourseSemester);
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,20 +41,22 @@ public class AddNewCoursesToDB extends AppCompatActivity {
 
                 final String a=etCN.getText().toString().toUpperCase();
                 final String b=etCPRN.getText().toString().toUpperCase();
+                final String c=etSS.getText().toString();
 
-                if(a.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"Course name is not valid",Toast.LENGTH_LONG).show();
+                if(a.isEmpty() || c.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"Invalid Course Info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
 
-                Course course=new Course(a,b);
+                Course course=new Course(a,b,c);
 
                 mRef.child("courses").child(a).setValue(course);
                 Toast.makeText(getApplicationContext(),"New Course Added Successfully To DB",Toast.LENGTH_LONG).show();
                 progressDialog.dismiss();
                 etCN.setText("");
                 etCPRN.setText("");
+                etSS.setText("");
 
             }
         });

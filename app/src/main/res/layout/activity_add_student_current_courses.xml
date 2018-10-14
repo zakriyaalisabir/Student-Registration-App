@@ -40,13 +40,26 @@
             android:entries="@array/semesterList"
             android:id="@+id/spSelectSemester"></Spinner>
 
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="LOAD COURSES"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="@drawable/round_button"
+            android:id="@+id/btnLoadCourses"
+            android:layout_below="@+id/spSelectSemester"/>
+
         <TextView
+            android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#000000"
             android:gravity="center"
             android:id="@+id/tvNote"
-            android:layout_below="@+id/spSelectSemester"
+            android:layout_below="@+id/btnLoadCourses"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Select Course Name From The Dropdown List Shown Below"/>
