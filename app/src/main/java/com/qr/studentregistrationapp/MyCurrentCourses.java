@@ -1,4 +1,4 @@
-package com.zakriyaalisabir.studentregistrationapp;
+package com.qr.studentregistrationapp;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,10 +15,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.studentregistrationapp.R;
 
 import java.util.ArrayList;
 
-public class MyResults extends AppCompatActivity {
+public class MyCurrentCourses extends AppCompatActivity {
 
     private TextView tvM;
     private DatabaseReference mRef;
@@ -34,11 +35,11 @@ public class MyResults extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_results);
+        setContentView(R.layout.activity_my_current_courses);
 
         scannedResult=getIntent().getStringExtra("scannedResult");
 
-        mRef= FirebaseDatabase.getInstance().getReference("results");
+        mRef= FirebaseDatabase.getInstance().getReference("currentCourses");
 
         tvM=(TextView)findViewById(R.id.tvStudentCurrentCourses);
         sp=(Spinner)findViewById(R.id.spSelectSemester);
@@ -48,7 +49,7 @@ public class MyResults extends AppCompatActivity {
 
         arrayList=new ArrayList<String>();
 
-        final ProgressDialog progressDialog=new ProgressDialog(MyResults.this);
+        final ProgressDialog progressDialog=new ProgressDialog(MyCurrentCourses.this);
         progressDialog.setTitle("Fetching Courses");
         progressDialog.setMessage("Please wait ...");
 
@@ -65,10 +66,6 @@ public class MyResults extends AppCompatActivity {
                     mRef.child(scannedResult).child(sem).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            if(!dataSnapshot.hasChildren()){
-                                progressDialog.dismiss();
-                                return;
-                            }
                             tvM.setText("");
                             for(DataSnapshot ds:dataSnapshot.getChildren()){
                                 String key=ds.getKey().toString();

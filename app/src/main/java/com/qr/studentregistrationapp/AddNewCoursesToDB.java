@@ -1,4 +1,4 @@
-package com.zakriyaalisabir.studentregistrationapp;
+package com.qr.studentregistrationapp;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.studentregistrationapp.R;
 
 public class AddNewCoursesToDB extends AppCompatActivity {
 

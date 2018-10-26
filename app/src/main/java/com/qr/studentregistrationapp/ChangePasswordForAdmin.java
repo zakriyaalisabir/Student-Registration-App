@@ -1,4 +1,4 @@
-package com.zakriyaalisabir.studentregistrationapp;
+package com.qr.studentregistrationapp;
 
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
@@ -16,6 +16,7 @@ import com.google.firebase.auth.EmailAuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.studentregistrationapp.R;
 
 public class ChangePasswordForAdmin extends AppCompatActivity {
 

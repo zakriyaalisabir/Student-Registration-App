@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">studentRegistrationApp</string>
+    <string name="app_name">StudentRegistrationApp</string>
 
     <string-array name="whatToUpdate">
         <item>Name</item>

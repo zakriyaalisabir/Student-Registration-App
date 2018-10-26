@@ -1,4 +1,4 @@
-package com.zakriyaalisabir.studentregistrationapp;
+package com.qr.studentregistrationapp;
 
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.studentregistrationapp.R;
 
 public class UpdateStudentInfo extends AppCompatActivity implements MyDialogClass.MyDialogClassListner {
 

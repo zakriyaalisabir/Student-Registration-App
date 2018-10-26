@@ -1,4 +1,4 @@
-package com.zakriyaalisabir.studentregistrationapp;
+package com.qr.studentregistrationapp;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+
+import com.studentregistrationapp.R;
 
 public class MyDialogClass extends AppCompatDialogFragment {
 
